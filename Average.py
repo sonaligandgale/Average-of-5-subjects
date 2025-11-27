@@ -1,27 +1,36 @@
-# Student Grade Evaluation Program
+import sys
 
-# Input marks of 5 subjects
-marks = []
-for i in range(1, 6):
-    m = float(input(f"Enter marks for subject {i}: "))
-    marks.append(m)
+if len(sys.argv) == 6:
+    script_name = sys.argv[0]
+    m1 = float(sys.argv[1])
+    m2 = float(sys.argv[2])
+    m3 = float(sys.argv[3])
+    m4 = float(sys.argv[4])
+    m5 = float(sys.argv[5])
+    print("User provided input values:")
+else:
+    script_name = sys.argv[0]
+    m1 = 80.0
+    m2 = 75.0
+    m3 = 90.0
+    m4 = 85.0
+    m5 = 70.0
+    print("No input given – using default marks:")
 
-# Calculate average
-average = sum(marks) / 5
+average = (m1 + m2 + m3 + m4 + m5) / 5
 
-# Determine Grade
 if average >= 90:
     grade = "A"
-elif average >= 75:
+elif average >= 80:
     grade = "B"
-elif average >= 60:
+elif average >= 70:
     grade = "C"
-elif average >= 40:
+elif average >= 60:
     grade = "D"
 else:
     grade = "Fail"
 
-# Output
-print("\n----- RESULT -----")
-print(f"Average Marks: {average:.2f}")
-print(f"Grade: {grade}")
+print("Script Name:", script_name)
+print("Marks:", m1, m2, m3, m4, m5)
+print("Average marks:", average)
+print("Grade:", grade)
